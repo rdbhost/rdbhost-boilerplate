@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rdbhost JavaScript Library v2 Boilerplate</title>
+    <meta name="fragment" content="!">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://www.rdbhost.com/vendor/labjs/LAB.js"> </script>
+    <script type="text/javascript" src="js/rdbhost-bootstrap.js"></script>
+</head>
+  <body>
+    <h1>Guest Book</h1>
+
+    <div id="guest-list">
+      <div class="entry">
+        <span>{{name}}</span>
+        <span>{{date}}</span>
+      </div>
+    </div>
+
+
+    <div id="add-guest">
+      <label for="guestname">
+        <input name="guestname" id="guestname" type="text" placeholder="Your Name?" />
+      </label>
+      <input id="add" name="add" type="submit" />
+    </div>
+  </body>
+</html>
