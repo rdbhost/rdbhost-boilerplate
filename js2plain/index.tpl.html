@@ -8,21 +8,23 @@
     <script type="text/javascript" src="js/rdbhost-bootstrap.js"></script>
 </head>
   <body>
-    <h1>Guest Book</h1>
+    <div class="container">
+      <h1>Guest Book</h1>
 
-    <div id="guest-list">
-      <div class="entry">
-        <span>{{name}}</span>
-        <span>{{date}}</span>
+      <div id="guest-list">
+        <ul>
+          <li class="entry">{{name}}: {{date}}</li>
+        </ul>
       </div>
-    </div>
 
-
-    <div id="add-guest">
-      <label for="guestname">
-        <input name="guestname" id="guestname" type="text" placeholder="Your Name?" />
-      </label>
-      <input id="add" name="add" type="submit" />
+      <div id="add-guest">
+        <div class="form-group">
+          <label for="guestname">
+            <input name="guestname" id="guestname" type="text" placeholder="Your Name?" />
+          </label>
+          <input id="add" name="add" type="submit" />
+        </div>
+      </div>
     </div>
   </body>
 </html>
