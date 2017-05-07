@@ -10,11 +10,11 @@ function run() {
     function add_table(tablename) {
 
         var q = "\
-        CREATE TABLE guests (\
-          name VARCHAR(120), \
-          tstamp TIMESTAMP WITH TIME ZONE DEFAULT now() \
-        );\
-        GRANT SELECT, UPDATE, INSERT ON guests TO {};".replace('{}', Rdbhost.roleid('p'));
+CREATE TABLE guests ( \n\
+  name VARCHAR(120), \n\
+  tstamp TIMESTAMP WITH TIME ZONE DEFAULT now() \n\
+); \n\
+GRANT SELECT, UPDATE, INSERT ON guests TO {};".replace('{}', Rdbhost.roleid('p'));
 
         var p = Rdbhost.super().query(q)
             .get_data();
@@ -27,6 +27,8 @@ function run() {
             .get_data();
 
         return p.then(function(d) {
+
+                $('#guest-list').empty();
 
                 var results = d.result_sets[0];
                 if (results.row_count[0] === 0)

@@ -10,11 +10,11 @@ function run() {
     function add_table(tablename) {
 
         var q = "\
-        CREATE TABLE guests (\
-          name VARCHAR(120), \
-          tstamp TIMESTAMP WITH TIME ZONE DEFAULT now() \
-        );\
-        GRANT SELECT, UPDATE, INSERT ON guests TO {};".replace('{}', Rdbhost.roleid('p'));
+CREATE TABLE guests ( \n\
+  name VARCHAR(120), \n\
+  tstamp TIMESTAMP WITH TIME ZONE DEFAULT now() \n\
+); \n\
+GRANT SELECT, UPDATE, INSERT ON guests TO {};".replace('{}', Rdbhost.roleid('p'));
 
         var p = Rdbhost.super().query(q)
             .get_data();
@@ -25,6 +25,8 @@ function run() {
 
         var p = preauth.clone().query('SELECT name, tstamp FROM guests;')
             .get_data();
+
+        $('#guest-list').empty();
 
         return p.then(function(d) {
 
