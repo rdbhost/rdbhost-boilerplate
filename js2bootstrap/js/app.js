@@ -1,6 +1,4 @@
 
-
-
 function run() {
 
     var tpl = $('#guest-list .entry').remove();
