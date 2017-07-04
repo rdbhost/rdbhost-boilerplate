@@ -17,7 +17,7 @@
         return "fetch" in window;
     }
 
-    var $L = $LAB;
+    var $L = window.$L = $LAB;
     
     if ( !hasPromises() )
           $L = $L.script('https://www.rdbhost.com/vendor/es6-promises/dist/es6-promise.js').wait();
