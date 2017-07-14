@@ -4,8 +4,8 @@
 // tell rdbhost module what role and account we are using
 //
 $.rdbHostConfig({
-    accountNumber : {[{ACCOUNT_NUMBER}]},
-    domain        : "/*{HOSTNAME}*/www.rdbhost.com",
+    accountNumber : /*{ACCOUNT_NUMBER}*/8,
+    domain        : /*{HOSTNAME}*/'www.rdbhost.com',
     userName      : 'super'
 });
 
@@ -38,9 +38,9 @@ mod.controller('DvdConfigureController', ['$scope', 'rdbHttp', function($scope, 
     var createSchemaSQL = 'CREATE SCHEMA sandbox;   ';
 
     var grantPrivs =
-        'GRANT USAGE ON SCHEMA sandbox TO {[{PREAUTH_ROLE}]};'+
+        'GRANT USAGE ON SCHEMA sandbox TO p0000000008;'+
         'GRANT INSERT, SELECT, UPDATE                 '+
-        '  ON sandbox.dvds_jsintro TO {[{PREAUTH_ROLE}]};    ';
+        '  ON sandbox.dvds_jsintro TO p0000000008;    ';
 
     var createTableSQL =
         'CREATE TABLE sandbox.dvds_jsintro(           '+
@@ -357,7 +357,7 @@ mod.controller('OpenIDPreauthController', ['$scope', '$timeout', function($scope
     $scope.ident = '';
 
     $.rdbHostConfig({
-        accountNumber: {[{ACCOUNT_NUMBER}]},
+        accountNumber: /*{ACCOUNT_NUMBER}*/8,
         userName: "read",
         domain: /*{HOSTNAME}*/'www.rdbhost.com'
     });

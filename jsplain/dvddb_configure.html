@@ -27,9 +27,9 @@
 
         var createSchemaSQL =   'CREATE SCHEMA sandbox;   ';
 
-        var grantPrivs =        'GRANT USAGE ON SCHEMA sandbox TO {[{PREAUTH_ROLE}]};'+
+        var grantPrivs =        'GRANT USAGE ON SCHEMA sandbox TO p0000000008;'+
                                 'GRANT INSERT, SELECT, UPDATE                      '+
-                                '  ON sandbox.dvds_jsintro TO {[{PREAUTH_ROLE}]};    ';
+                                '  ON sandbox.dvds_jsintro TO p0000000008;    ';
 
         var createTableSQL =    'CREATE TABLE sandbox.dvds_jsintro(           '+
                                 '  id          SERIAL PRIMARY KEY,            '+
