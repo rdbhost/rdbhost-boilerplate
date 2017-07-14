@@ -7,7 +7,7 @@
 */
 module('SQLEngine pre-test');
 var domain = /*{HOSTNAME}*/'www.rdbhost.com';
-var demo_r_role = '{[{SUPER_ROLE}]}'.replace('s','r');
+var demo_r_role = (/*{SUPER_ROLE}*/'s0000000008').replace('s','r');
 var demo_r_pass = '-';
 
 // test that read-role is defined

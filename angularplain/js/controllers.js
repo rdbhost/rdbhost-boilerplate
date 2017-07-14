@@ -329,7 +329,6 @@ mod.controller('EmailPreauthController', ['$scope', function($scope) {
         var p = R.emailWebmaster({
 
             bodyString: $scope.emailBody,
-            // replyTo: {[{EMAIL}]}',
             subject: 'test subject'
         });
 
