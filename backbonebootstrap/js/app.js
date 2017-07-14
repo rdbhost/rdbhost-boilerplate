@@ -22,9 +22,25 @@ var app = _.extend({ userId: undefined, userKey: undefined }, Backbone.Events);
     var R = window.Rdbhost;
 
     R.rdbHostConfig({
-        domain: 'www.rdbhost.com',
-        accountNumber: 14,
+        domain: '{[{HOSTNAME}]}',
+        accountNumber: {[{ACCOUNT_NUMBER}]},
         userName: 'preauth'
+    });
+
+    function onSuccess(key, ident) {
+
+        app.loginId = ident;
+    }
+
+    function onFailure(ident) {
+
+        app.loginId = undefined;
+    }
+
+    R.loginOpenId({
+        'loginForm': 'openidForm',
+        'callback': onSuccess,
+        'errback' : onFailure
     });
 
 })();

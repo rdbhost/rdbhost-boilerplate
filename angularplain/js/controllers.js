@@ -4,24 +4,24 @@
 // tell rdbhost module what role and account we are using
 //
 $.rdbHostConfig({
-    accountNumber : 12,
-    domain        : "www.rdbhost.com",
+    accountNumber : {[{ACCOUNT_NUMBER}]},
+    domain        : "{[{HOSTNAME}]}",
     userName      : 'super'
 });
 
 
-var mod = angular.module('myApp.controllers', ['ngResource']);
+var mod = angular.module('myApp.controllers', ['ngResource', 'rdbhost']);
 
 // Produce a new rdbHttp object for interacting with Rdbhost
-mod.factory('$rdbHttp', ['$http', '$q', Rdbhost.Angular.makeRdbHttp]);
+// mod.factory('$rdbHttp', ['$http', '$q', rdbHttp]);
 
 // Configure $httpProvider to remove unwanted headers, and add response transform
-mod.config(['$httpProvider', Rdbhost.Angular.providerInit]);
+// mod.config(['$httpProvider', Rdbhost.Angular.providerInit]);
 
 
 /* Controllers */
 
-mod.controller('DvdConfigureController', ['$scope', '$rdbHttp', function($scope, $http) {
+mod.controller('DvdConfigureController', ['$scope', 'rdbHttp', function($scope, $http) {
 
     var R = window.Rdbhost;
 
@@ -38,9 +38,9 @@ mod.controller('DvdConfigureController', ['$scope', '$rdbHttp', function($scope,
     var createSchemaSQL = 'CREATE SCHEMA sandbox;   ';
 
     var grantPrivs =
-        'GRANT USAGE ON SCHEMA sandbox TO p0000000012;'+
+        'GRANT USAGE ON SCHEMA sandbox TO {[{PREAUTH_ROLE}]};'+
         'GRANT INSERT, SELECT, UPDATE                 '+
-        '  ON sandbox.dvds_jsintro TO p0000000012;    ';
+        '  ON sandbox.dvds_jsintro TO {[{PREAUTH_ROLE}]};    ';
 
     var createTableSQL =
         'CREATE TABLE sandbox.dvds_jsintro(           '+
@@ -145,7 +145,8 @@ mod.controller('DvdConfigureController', ['$scope', '$rdbHttp', function($scope,
 }]);
 
 
-mod.controller('DvdPreauthController', ['$scope', '$rdbHttp', '$resource', function($scope, $http, $resource) {
+mod.controller('DvdPreauthController', ['$scope', 'rdbHttp', '$resource', 'rdbhostTransformRequest', 'rdbhostTransformResponseFactory',
+                               function($scope, $http, $resource, rdbhostTransformRequest, rdbhostTransformResponseFactory) {
 
     var R = window.Rdbhost,
         RA = R.Angular;
@@ -184,9 +185,9 @@ mod.controller('DvdPreauthController', ['$scope', '$rdbHttp', '$resource', funct
                 },
                 isArray: true,
 
-                transformRequest: RA.rdbhostTransformRequest,
+                transformRequest: rdbhostTransformRequest,
 
-                transformResponse: RA.rdbhostTransformResponseFactory(true)
+                transformResponse: rdbhostTransformResponseFactory(true)
             },
 
             save: {
@@ -197,9 +198,9 @@ mod.controller('DvdPreauthController', ['$scope', '$rdbHttp', '$resource', funct
                     format: 'json-easy'
                 },
 
-                transformRequest: RA.rdbhostTransformRequest,
+                transformRequest: rdbhostTransformRequest,
 
-                transformResponse: RA.rdbhostTransformResponseFactory(false)
+                transformResponse: rdbhostTransformResponseFactory(false)
             }
         }
     );
@@ -328,7 +329,7 @@ mod.controller('EmailPreauthController', ['$scope', function($scope) {
         var p = R.emailWebmaster({
 
             bodyString: $scope.emailBody,
-            // replyTo: js@travelbyroad.net',
+            // replyTo: {[{EMAIL}]}',
             subject: 'test subject'
         });
 
@@ -356,9 +357,9 @@ mod.controller('OpenIDPreauthController', ['$scope', '$timeout', function($scope
     $scope.ident = '';
 
     $.rdbHostConfig({
-        accountNumber: 12,
+        accountNumber: {[{ACCOUNT_NUMBER}]},
         userName: "read",
-        domain: "www.rdbhost.com"
+        domain: "{[{HOSTNAME}]}"
     });
 
     function add_status_line(ln) {
