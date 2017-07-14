@@ -1,6 +1,6 @@
 
 
-var domain = '{[{HOSTNAME}]}';
+var domain = /*{HOSTNAME}*/'www.rdbhost.com';
 var demo_r_role = '{[{SUPER_ROLE}]}'.replace('s','r');
 var demo_r_pass = '-';
 

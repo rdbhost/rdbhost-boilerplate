@@ -9,16 +9,16 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width"/>
     <title>Rdbhost JavaScript Bootstrap Boilerplate</title>
-    <link rel="stylesheet" href="https://{[{HOSTNAME}]}/vendor/foundation/4.3/css/foundation.css"/>
+    <link rel="stylesheet" href="https://www.rdbhost.com/vendor/foundation/4.3/css/foundation.css"/>
     <link rel="stylesheet" href="css/custom.css"/>
-    <script src="https://{[{HOSTNAME}]}/vendor/Modernizr/2.6/modernizr-2.6.2.min.js"></script>
+    <script src="https://www.rdbhost.com/vendor/Modernizr/2.6/modernizr-2.6.2.min.js"></script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements --><!--[if lt IE 9]>
-    <script src="https://{[{HOSTNAME}]}/js/html5shim.js"></script><![endif]-->
+    <script src="https://www.rdbhost.com/js/html5shim.js"></script><![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <script src="http://{[{HOSTNAME}]}/js/jquery.rdbhost.js"></script>
-    <script src="http://{[{HOSTNAME}]}/js/jquery.rdbhost.utils.js"></script>
-    <script src="https://{[{HOSTNAME}]}/js/json2.js"></script>
+    <script src="http://www.rdbhost.com/js/jquery.rdbhost.js"></script>
+    <script src="http://www.rdbhost.com/js/jquery.rdbhost.utils.js"></script>
+    <script src="https://www.rdbhost.com/js/json2.js"></script>
     <!-- script src="js/openid.js"></script -->
 
 </head>
@@ -78,7 +78,7 @@
             <li>http://example.livejournal.com</li>
             <li>http://example.myopenid.com</li>
         </ul>
-        <p>The OpenID Provider will ask if you wish to verify ID for "{[{HOSTNAME}]}". Respond "yes", as RdbHost
+        <p>The OpenID Provider will ask if you wish to verify ID for "www.rdbhost.com". Respond "yes", as RdbHost
             handles the OpenID verification for us.</p>
 
         <div id="alreadyLoggedIn">You are already logged in, as <span id="ident"></span></div>
@@ -92,7 +92,7 @@
     </footer>
 </div>
 
-<script src="https://{[{HOSTNAME}]}/js/jquery.cookie.js"></script>
+<script src="https://www.rdbhost.com/js/jquery.cookie.js"></script>
 <script>
     $(document).ready(function () {
 
@@ -116,7 +116,7 @@
 
         $.rdbHostConfig({
             'accountNumber': {[{ACCOUNT_NUMBER}]},
-            'domain': "{[{HOSTNAME}]}"
+            'domain': /*{HOSTNAME}*/'www.rdbhost.com'
         });
 
         R.loginOpenId({
@@ -127,7 +127,7 @@
 
     });
 </script>
-<script src="https://{[{HOSTNAME}]}/vendor/foundation/4.3/js/foundation.min.js"></script>
+<script src="https://www.rdbhost.com/vendor/foundation/4.3/js/foundation.min.js"></script>
 <script>
     $(document).foundation();
 </script>

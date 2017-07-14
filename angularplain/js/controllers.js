@@ -5,7 +5,7 @@
 //
 $.rdbHostConfig({
     accountNumber : {[{ACCOUNT_NUMBER}]},
-    domain        : "{[{HOSTNAME}]}",
+    domain        : "/*{HOSTNAME}*/www.rdbhost.com",
     userName      : 'super'
 });
 
@@ -359,7 +359,7 @@ mod.controller('OpenIDPreauthController', ['$scope', '$timeout', function($scope
     $.rdbHostConfig({
         accountNumber: {[{ACCOUNT_NUMBER}]},
         userName: "read",
-        domain: "{[{HOSTNAME}]}"
+        domain: /*{HOSTNAME}*/'www.rdbhost.com'
     });
 
     function add_status_line(ln) {

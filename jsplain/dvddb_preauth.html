@@ -6,9 +6,9 @@
   <title>RdbHost JSIntro</title>
   <!-- link href="css/custom.css" rel="stylesheet" -->
   <script language="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-  <script language="javascript" src="http://{[{HOSTNAME}]}/vendor/Modernizr/2.6/modernizr-2.6.2.min.js"></script>
-  <script language="javascript" src="http://{[{HOSTNAME}]}/js/jquery.rdbhost.js"></script>
-  <script language="javascript" src="http://{[{HOSTNAME}]}/js/json2.js"></script>
+  <script language="javascript" src="http://www.rdbhost.com/vendor/Modernizr/2.6/modernizr-2.6.2.min.js"></script>
+  <script language="javascript" src="http://www.rdbhost.com/js/jquery.rdbhost.js"></script>
+  <script language="javascript" src="http://www.rdbhost.com/js/json2.js"></script>
   <script>
 
     function add_status_line(stat) {
@@ -23,7 +23,7 @@
         $.rdbHostConfig({
             'userName' : "{[{PREAUTH_ROLE}]}",
             'authcode' : "",
-            'domain'   : "{[{HOSTNAME}]}"
+            'domain'   : /*{HOSTNAME}*/'www.rdbhost.com'
         });
 
         var addDVDSQL =         'INSERT INTO sandbox.dvds_jsintro   '+

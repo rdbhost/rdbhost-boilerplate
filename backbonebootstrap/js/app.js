@@ -22,7 +22,7 @@ var app = _.extend({ userId: undefined, userKey: undefined }, Backbone.Events);
     var R = window.Rdbhost;
 
     R.rdbHostConfig({
-        domain: '{[{HOSTNAME}]}',
+        domain: /*{HOSTNAME}*/'www.rdbhost.com',
         accountNumber: {[{ACCOUNT_NUMBER}]},
         userName: 'preauth'
     });
