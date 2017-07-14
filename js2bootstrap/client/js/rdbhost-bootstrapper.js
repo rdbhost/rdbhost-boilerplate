@@ -21,7 +21,7 @@ var $L = $LAB
 
             $L = $L.script('js/example.js').wait(function() {
 
-                Rdbhost.connect('/*{HOSTNAME}*/www.rdbhost.com', {[{ACCOUNT_NUMBER}]});
+                Rdbhost.connect(/*{HOSTNAME}*/'www.rdbhost.com', /*{ACCOUNT_NUMBER}*/8);
                 var preauth_for_reloader = Rdbhost.preauth();
                 Rdbhost.activate_reloader(preauth_for_reloader);
 

@@ -24,9 +24,9 @@
 
             $.rdbHostConfig({
                 domain:   /*{HOSTNAME}*/'www.rdbhost.com',
-                accountNumber: {[{ACCOUNT_NUMBER}]},
+                accountNumber: /*{ACCOUNT_NUMBER}*/8,
                 userName: 'super'
-            })
+            });
 
             var $emailForm = $('#emailapi');
             $emailForm.submit(function (ev) {
