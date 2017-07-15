@@ -99,7 +99,8 @@ gulp.task('copy:dist', function() {
 	return gulp.src([
 		config.base + '/*',
 		'!' + config.base + '/*.html',
-		'!' + config.base + '/src'
+		'!' + config.base + '/src',
+		'!' + config.base + '/scss'
 	])
 		.pipe(plugins.changed(config.dist, {hasChanged: changed}))
 		.pipe(gulp.dest(config.dist))
@@ -110,7 +111,8 @@ gulp.task('copy:dist', function() {
 gulp.task('copy', function() {
 	return gulp.src([
 		config.base + '/**/*',
-		'!' + config.base + '/src'
+		'!' + config.base + '/src',
+		'!' + config.base + '/scss'
 	])
 	// .pipe(plugins.debug({'title': 'copy all'}))
 		.pipe(plugins.changed(config.dev, {hasChanged: changed}))
