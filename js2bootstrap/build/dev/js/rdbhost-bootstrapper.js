@@ -21,7 +21,7 @@
 	if ( !hasPromises() )
 		$L = $L.script('https://www.rdbhost.com/vendor/es6-promises/dist/es6-promise.js').wait();
 	if ( !hasFetch() )
-		$L = $L.script('/fetch.js').wait();
+		$L = $L.script('https://www.rdbhost.com/vendor/fetch.js').wait();
 
 	// initialize Rdbhost module with account
 	function _init() {
