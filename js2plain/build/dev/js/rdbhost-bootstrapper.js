@@ -25,8 +25,8 @@
 
 	// initialize Rdbhost module with account
 	function _init() {
-		Rdbhost.connect(/*HOST_NAME*/'www.rdbhost.com',
-			/*ACCOUNT_NUMBER*/1866);
+		Rdbhost.connect(/*{HOSTNAME}*/'www.rdbhost.com',
+			            /*{ACCOUNT_NUMBER}*/1866);
 		Rdbhost.use_labjs_loader($LAB);
 	}
 	if ( !window.Rdbhost || !window.Rdbhost.preauth ) {
