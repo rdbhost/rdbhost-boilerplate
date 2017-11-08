@@ -62,8 +62,8 @@
 		});
 
 	$L = $L.script('js/app.js').wait(function() {
-		setTimeout(run, 0);
-	});
+			setTimeout(run, 0);
+		});
 
 })(window);
 
