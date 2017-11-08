@@ -38,11 +38,11 @@
 
 	// -- uncomment these if you need them
 	//
-	// if (!Rdbhost.Email)
+	// if ( !window.Rdbhost || !Rdbhost.Email)
 	//   $L = $L.script('https://www.rdbhost.com/vendor/rdbhost/2.3/lib/js/rdb2-emailing.js');
-	// if (!Rdbhost.Authenticate)
+	// if ( !window.Rdbhost || !Rdbhost.Authenticate)
 	//   $L = $L.script('https://www.rdbhost.com/vendor/rdbhost/2.3/lib/js/rdb2-authenticate.js');
-	// if (!Rdbhost.Charge)
+	// if ( !window.Rdbhost || !Rdbhost.Charge)
 	//   $L = $L.script('https://www.rdbhost.com/vendor/rdbhost/2.3/lib/js/rdb2-charge.js');
 
 	// $L = $L.script('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js');
@@ -60,8 +60,8 @@
 		});
 
 	$L = $L.script('js/app.js').wait(function() {
-		run();
-	});
+			setTimeout(run, 0);
+		});
 
 })(window);
 
